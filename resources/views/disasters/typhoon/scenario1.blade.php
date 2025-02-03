@@ -44,7 +44,7 @@
     <div class="container mt-5 " style="width: 100%; height: 100%; max-width: 1600px; padding: 0 50px;">
 
         <!-- Scenario 1 -->
-        <div class="scenario-container" id="scenario-1" style="display: none;">
+        <div class="scenario-container" id="scenario-1" style="display: flex;">
             
         <div id="timer" class="timer-position">00:00</div>
             
@@ -321,7 +321,7 @@
                     </h2>
                     <p class="typewriter"><span class="animation">What should you make sure to do before leaving your house for the evacuation center? </span></p>
 
-                <div class="button-options mt-4" style="display: flex; justify-content: space-around;">
+                    <div class="button-options mt-4" style="display: flex; flex-direction: column; align-items: left; justify-content: left; margin: 0; gap: 10px;">
                     <button class="btn-option" data-answer="wrong">Leave the doors unlocked for easier access when you return.</button>
                     <button class="btn-option" data-answer="wrong">Open all windows to let air circulate.</button>
                     <button class="btn-option" data-answer="correct">Turn off all electrical appliances and the main power switch. Lock all doors.</button>

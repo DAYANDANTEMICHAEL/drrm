@@ -555,6 +555,7 @@ buttonOptions8.forEach(button => {
                 scenario8.style.display = "flex";
             }, 10000);
             stopTimer();
+            window.location.href = '/disasters';
         } else {
             scenario8Attempts++;
             if (scenario8Attempts > 2) {
