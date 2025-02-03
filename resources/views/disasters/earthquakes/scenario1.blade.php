@@ -36,7 +36,7 @@
 
 
     <!-- Scenario 2 -->
-    <div class="scenario-container" id="scenario-2" style="display: none;">
+    <div class="scenario-container" id="scenario-2" style="display: flex;">
         <div id="timer-2" class="timer-position">00:00</div>
        
     <div class="scenario-content" id="scenario-content-2">
@@ -240,7 +240,7 @@
 
        
         <!-- Scenario 1 -->
-        <div class="scenario-container" id="scenario-1" style="display: flex;">
+        <div class="scenario-container" id="scenario-1" style="display: none;">
         <div id="timer" class="timer-position">00:00</div>
 
             {{-- <div class="scenario-image">
@@ -360,18 +360,35 @@
             </span></p>
         </p>
         <div class="button-options" style="display: flex; flex-wrap: wrap; justify-content: center;">
-                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/parkinglot.png') }}" alt="" style="width: 150px; height: 150px;">
-                    </button>
-                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/crowdedarea.png') }}" alt="" style="width: 150px; height: 150px;">
-                    </button>
-                    <button class="btn-options" data-answer="correct" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/park.png') }}" alt="" style="width: 150px; height: 150px;">
-                    </button>
-                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/alleyway.png') }}" alt="" style="width: 150px; height: 150px;">
-                    </button>
+                    <div style="text-align: center; margin: 10px;">
+                        <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="border: none;">
+                            <img src="{{ asset('assets/parkinglot.png') }}" alt="" style="width: 150px; height: 150px;">
+                            <p>A. A parking lot</p>
+                        </button>
+                        <
+                    </div>
+                    <div style="text-align: center; margin: 10px;">
+                        <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="border: none;">
+                            <img src="{{ asset('assets/crowdedarea.png') }}" alt="" style="width: 150px; height: 150px;">
+                            <p>B. A crowded indoor area</p>
+                           
+                        </button>
+                        <
+                    </div>
+                    <div style="text-align: center; margin: 10px;">
+                        <button class="btn-options" data-answer="correct" id="scenario3Choices" style="border: none;">
+                            <img src="{{ asset('assets/park.png') }}" alt="" style="width: 150px; height: 150px;">
+                            <p>C. An open field or park</p>
+                        </button>
+                            <
+                    </div>
+                    <div style="text-align: center; margin: 10px;">
+                        <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="border: none;">
+                            <img src="{{ asset('assets/alleyway.png') }}" alt="" style="width: 150px; height: 150px;">
+                            <p>D. A small alleyway</p>
+                        </button>
+                            <
+                    </div>
                 </div>
     </div>
     </div>

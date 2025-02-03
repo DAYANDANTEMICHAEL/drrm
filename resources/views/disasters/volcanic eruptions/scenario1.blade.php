@@ -83,16 +83,20 @@
             </span></p>
         </p>
 
-        <div class="button-optionss mt-4" style="display: flex; flex-direction: column;">
-            <div style="margin: 70px;">
-                <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin-right: 70px;"><img src="{{ asset('assets/16.png') }}" alt=""></button>
-                <button class="btn-options" data-answer="wrong" id="scenario3Choices"><img src="{{ asset('assets/16.png') }}" alt=""></button>
-            </div>
-            <div style="margin: 70px;">
-                <button class="btn-options" data-answer="correct" id="scenario3Choices" style="margin-right: 70px;"><img src="{{ asset('assets/16.png') }}" alt=""></button>
-                <button class="btn-options" data-answer="wrong" id="scenario3Choices"><img src="{{ asset('assets/16.png') }}" alt=""></button>
-            </div>
-        </div>
+            <div class="button-options" style="display: flex; flex-wrap: wrap; justify-content: center;">
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/redcross.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/dot.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="correct" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/philcoastguard.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/ndrrmc.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                </div>
     </div>
     </div>
 
@@ -328,11 +332,8 @@
         <p class="typewriter"><span class="animation" style="display: inline-block; max-width: 100%; overflow-wrap: break-word; margin-right: 10px; margin-left: 10px;">What is the recommended thing to do first after going back?</span></p>
 
         <div class="button-options mt-4">
-            <button class="btn-option" data-answer="wrong"> Rush inside to start cleaning the</button>
-            <button class="btn-option" data-answer="correct"> Wait for the ash cloud to
-                                                        settle before going outside
-                                                        and wear a mask for
-                                                        protection</button>
+            <button class="btn-option" data-answer="wrong"> Rush inside to start cleaning the ash of your furniture.</button>
+            <button class="btn-option" data-answer="correct"> Wait for the ash cloud to settle before going outside and wear a mask for protection</button>
             <button class="btn-option" data-answer="wrong"> Immediately open all
                                                 windows to ventilate the
                                                 house an</button>

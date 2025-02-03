@@ -47,14 +47,14 @@ let scenario8Attempts = 0;
 
 function getHintMessage(scenario) {
     const hints = {
-        "Scenario 1": "Focus on items that help yoo treat injuriies and prevent infections. Candies, toys, canned goods, and instant noodles do not belong in a first aid kit.",
-        "Scenario 2": "Running outside or standing still can be dangerous during an earthquake.",
-        "Scenario 3": "Consider which path offersa smoother, safer exit without potential blockagesor hazards.",
-        "Scenario 4": "Avoid areas where broken or falling debris couldpose a risk to your safety.",
-        "Scenario 5": "Avoid areas that might losepower or become stuck.Choose the route thatdoesn't rely on electricity tofunction.",
-        "Scenario 6": "Use a sound that can travelfar and be easilyrecognized in a noisy or chaotic situation.",
-        "Scenario 7": "Look for a wide, openspace that's clear of buildings or otherstructures that could collapse or cause hazards",
-        "Scenario 8": "Remaining in a secure areaallows you to stayinformed and avoidunnecessary risks."
+        "Scenario 4": "Volcanic activity can be unpredictable, and staying in the danger zone puts you at serious risk.",
+        "Scenario 3": "Avoid areas with glass or heavy equipment.",
+        "Scenario 5": "Emergency go bags are often kept in a central, easy-to-access location where they can be grabbed quickly during an evacuation.",
+        "Scenario 6": "Ashfall can cause health hazards, so protect your breathing and act promptly to reach safety.",
+        "Scenario 1": "This mask is commonly used in medical settings and helps protect against particles in the air.",
+        "Scenario 7": "It is not recommended to attend injuries without the supervision of the authorities.",
+        "Scenario 2": "This advice emphasizes waiting for official confirmation before leaving safety, typically during a hazardous or emergency situation.",
+        "Scenario 8": "When dealing with volcanic ash, it's important to protect your health first and avoid exposure to harmful particles until the situation is safe."
     };
 
     return hints[scenario];
@@ -464,7 +464,7 @@ buttonOptions8.forEach(button => {
         if (answer === correctAnswer3) {
             stopTimer(); // Stop the timer when showing the congratulations message
             console.log(scenario1Attempts, scenario2Attempts, scenario3Attempts, scenario4Attempts, scenario5Attempts, scenario6Attempts, scenario7Attempts, scenario8Attempts);
-            showcongrats("Congratulations! You have successfully prepared for the typhoon, kept your family safe, and followed all the necessary steps during the evacuation. Your readiness and quick thinking ensured everyone's safety and showed how important disaster preparedness is. ");
+            showcongrats("Great job! You’ve effectively responded to the volcanic eruption drill by staying alert and making informed decisions. Your preparedness and quick actions are key to ensuring your safety and the safety of those around you. Keep up the excellent work!");
             
             // Prepare data for progress update
             const data = [

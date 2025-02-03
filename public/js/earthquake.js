@@ -466,7 +466,7 @@ buttonOptions8.forEach(button => {
         if (answer === correctAnswer3) {
             stopTimer(); // Stop the timer when showing the congratulations message
             console.log(scenario1Attempts, scenario2Attempts, scenario3Attempts, scenario4Attempts, scenario5Attempts, scenario6Attempts, scenario7Attempts, scenario8Attempts);
-            showcongrats("Congratulations! You have successfully prepared for the typhoon, kept your family safe, and followed all the necessary steps during the evacuation. Your readiness and quick thinking ensured everyone's safety and showed how important disaster preparedness is. ");
+            showcongrats("Congratulations! You’ve successfully navigated through the earthquake drill with careful thinking and quick actions. You made the rightchoices to ensure your safety and the safety of others. ");
             
             // Prepare data for progress update
             const data = [
