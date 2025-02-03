@@ -47,13 +47,13 @@ let scenario8Attempts = 0;
 
 function getHintMessage(scenario) {
     const hints = {
-        "Scenario 1": "Focus on items that help yoo treat injuriies and prevent infections. Candies, toys, canned goods, and instant noodles do not belong in a first aid kit.",
-        "Scenario 2": "Running outside or standing still can be dangerous during an earthquake.",
-        "Scenario 3": "Consider which path offersa smoother, safer exit without potential blockagesor hazards.",
-        "Scenario 4": "Avoid areas where broken or falling debris couldpose a risk to your safety.",
-        "Scenario 5": "Avoid areas that might losepower or become stuck.Choose the route thatdoesn't rely on electricity tofunction.",
-        "Scenario 6": "Use a sound that can travelfar and be easilyrecognized in a noisy or chaotic situation.",
-        "Scenario 7": "Look for a wide, openspace that's clear of buildings or otherstructures that could collapse or cause hazards",
+        "Scenario 2": "Focus on items that help yoo treat injuriies and prevent infections. Candies, toys, canned goods, and instant noodles do not belong in a first aid kit.",
+        "Scenario 4": "Running outside or standing still can be dangerous during an earthquake.",
+        "Scenario 5": "Consider which path offersa smoother, safer exit without potential blockagesor hazards.",
+        "Scenario 6": "Avoid areas where broken or falling debris couldpose a risk to your safety.",
+        "Scenario 1": "Avoid areas that might losepower or become stuck.Choose the route thatdoesn't rely on electricity tofunction.",
+        "Scenario 7": "Use a sound that can travelfar and be easilyrecognized in a noisy or chaotic situation.",
+        "Scenario 3": "Look for a wide, openspace that's clear of buildings or otherstructures that could collapse or cause hazards",
         "Scenario 8": "Remaining in a secure areaallows you to stayinformed and avoidunnecessary risks."
     };
 

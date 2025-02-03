@@ -8,6 +8,7 @@
     <title>Earthquake Disaster Escape Room</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/earthquaketo.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
 
 
     <!-- Scenario 2 -->
-    <div class="scenario-container" id="scenario-2">
+    <div class="scenario-container" id="scenario-2" style="display: none;">
         <div id="timer-2" class="timer-position">00:00</div>
        
     <div class="scenario-content" id="scenario-content-2">
@@ -155,23 +156,39 @@
                 room during the
                 earthquake drill?
             </span></p>
-        <div>
-            <strong>Right Route:</strong>
-            <ul>
-                <li>A narrow hallway with no windows</li>
-                <li>Potentially blocked by fallen furniture or debris</li>
-                <li>Close to the emergency exit door</li>
-            </ul>
+        <div style="display: flex; justify-content: space-between; border: 2px solid #28a745; border-radius: 10px; padding: 20px; background-color: #f8f9fa;">
+            <div style="flex: 1; margin-right: 10px; padding: 10px; border: 1px solid #28a745; border-radius: 5px; background-color: #e9ffe9;">
             <strong>Left Route:</strong>
-            <ul>
-                <li>A wider hallway with windows</li>
-                <li>Clear path with no visible obstacles</li>
-                <li>The emergency exit is farther down the hall</li>
-            </ul>
+                <ul>
+                    <li>A wider hallway with windows</li>
+                    <li>Clear path with no visible obstacles</li>
+                    <li>The emergency exit is farther down the hall</li>
+                </ul>
+            </div>
+
+            <div style="margin-left: 20px;"></div> <!-- Gap -->
+
+            <div style="flex: 1; margin-left: 10px; padding: 10px; border: 1px solid #28a745; border-radius: 5px; background-color: #ffe9e9;">
+                <strong>Right Route:</strong>
+                <ul>
+                    <li>A narrow hallway with no windows</li>
+                    <li>Potentially blocked by fallen furniture or debris</li>
+                    <li>Close to the emergency exit door</li>
+                </ul>
+            </div>
         </div>
         <div class="button-options mt-4">
-            <button class="btn-option" data-answer="wrong">Right Route</button>
-            <button class="btn-option" data-answer="correct">Left Route</button>
+            <button class="btn-option" data-answer="wrong" style="font-size: 50px; padding: 25px; margin: 0 20px; background-color: #28a745; border: none; border-radius: 50%; transition: transform 0.2s, background-color 0.2s;" 
+                    onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)';" 
+                    onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)';">
+                <i class="fas fa-arrow-left" style="color: white;"></i>
+            </button>
+            <div style="margin-left: 300px;"></div> <!-- Gap -->
+            <button class="btn-option" data-answer="correct" style="font-size: 50px; padding: 25px; margin: 0 20px; background-color: #28a745; border: none; border-radius: 50%; transition: transform 0.2s, background-color 0.2s;" 
+                    onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)';" 
+                    onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)';">
+                <i class="fas fa-arrow-right" style="color: white;"></i>
+            </button>
         </div>
     </div>
     </div>
@@ -223,7 +240,7 @@
 
        
         <!-- Scenario 1 -->
-        <div class="scenario-container" id="scenario-1" style="display: none;">
+        <div class="scenario-container" id="scenario-1" style="display: flex;">
         <div id="timer" class="timer-position">00:00</div>
 
             {{-- <div class="scenario-image">
@@ -247,36 +264,33 @@
                 </span>
             </p>
 
-            <style>
-                .pulse {
-                    animation: pulse 3s infinite;
-                }
 
-                @keyframes pulse {
-                    0% {
-                        transform: scale(1);
-                    }
-                    50% {
-                        transform: scale(1.1);
-                    }
-                    100% {
-                        transform: scale(1);
-                    }
+            <style>
+                @keyframes shake {
+                    0% { transform: translate(0); }
+                    25% { transform: translate(-5px); }
+                    50% { transform: translate(5px); }
+                    75% { transform: translate(-5px); }
+                    100% { transform: translate(0); }
+                }
+                .shake {
+                    animation: shake 0.2s; /* Fast shake */
                 }
             </style>
 
-            <div class="button-options" style="display: flex; justify-content: center; align-items: center;">
-                <button class="btn-option"style="font-size: 50px; padding: 25px; margin: 0 20px; background-color: #28a745; border: none; border-radius: 50%; transition: transform 0.2s, background-color 0.2s;" 
-                        data-answer="correct" 
-                        onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)';" 
-                        onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)';">
-                    <i class="fas fa-arrow-left" style="color: white;"></i>
+<div class="button-options" style="display: flex; justify-content: center; align-items: center;">
+                <button class="btn-option shake" data-answer="correct" style="font-size: 50px; padding: 25px; margin: 0 20px; background-color: #28a745; border: none; border-radius: 5px; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);" 
+                        onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.5)';" 
+                        onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.3)';"
+                        onclick="showImage(this)">
+                    Stairs
                 </button>
-                <button class="btn-option" style="font-size: 50px; padding: 25px; margin: 0 20px; background-color: #28a745; border: none; border-radius: 50%; transition: transform 0.2s, background-color 0.2s;" 
-                        data-answer="wrong" 
-                        onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)';" 
-                        onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)';">
-                    <i class="fas fa-arrow-right" style="color: white;"></i>
+
+                <button class="btn-option shake" data-answer="wrong" style="font-size: 50px; padding: 25px; margin-left: 90px; background-color: #28a745; border: none; border-radius: 5px; transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);" 
+                        onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.5)';" 
+                        onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.3)';">
+                        
+                    Elevator
                 </button>
             </div>
         </div>
@@ -345,17 +359,20 @@
                 gather with others.
             </span></p>
         </p>
-
-        <div class="button-optionss mt-4" style="display: flex; flex-direction: column;">
-            <div style="margin: 70px;">
-                <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin-right: 70px;"><img src="{{ asset('assets/parkinglot.png') }}" alt=""></button>
-                <button class="btn-options" data-answer="wrong" id="scenario3Choices"><img src="{{ asset('assets/crowdedarea.png') }}" alt=""></button>
-            </div>
-            <div style="margin: 70px;">
-                <button class="btn-options" data-answer="correct" id="scenario3Choices" style="margin-right: 70px;"><img src="{{ asset('assets/park.png') }}" alt=""></button>
-                <button class="btn-options" data-answer="wrong" id="scenario3Choices"><img src="{{ asset('assets/alleyway.png') }}" alt=""></button>
-            </div>
-        </div>
+        <div class="button-options" style="display: flex; flex-wrap: wrap; justify-content: center;">
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/parkinglot.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/crowdedarea.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="correct" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/park.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/alleyway.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                </div>
     </div>
     </div>
 
