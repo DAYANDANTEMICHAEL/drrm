@@ -221,11 +221,15 @@
 
 
 
+       
         <!-- Scenario 1 -->
         <div class="scenario-container" id="scenario-1" style="display: none;">
         <div id="timer" class="timer-position">00:00</div>
-           
-        <div class="scenario-content" id="scenario-content-1">
+
+            {{-- <div class="scenario-image">
+                <img src="{{ asset('assets/newss.gif') }}" alt="scenario-1" class="img-fluid">
+        </div> --}}
+        <div class="scenario-content" id="scenario-content-1" style="display: flex;">
             <h2 class="mb-4">You're thinking about how
                 to exit the building faster
                 during the earthquake drill.
@@ -243,31 +247,40 @@
                 </span>
             </p>
 
-
-
-            <div class="choice-slider mt-4">
-                <div class="choice-images" id="choice-images">
-                    <img class="choice-image" id="choice-1" src="{{ asset('assets/stairs.png') }}" alt="Signal 1">
-                    <img class="choice-image" id="choice-2" src="{{ asset('assets/elevator.png') }}" alt="Signal 2">
-                </div>
-            </div>
-
-            <input type="range" id="slider" min="1" max="2" value="1" class="form-range" oninput="updateSliderValue(this.value)">
-            <div class="slider-labels">
-                <span>Stairs</span>
-                <span>Elevator</span>
-            </div>
-            <div id="slider-value" class="mt-2">Current Value: 1</div>
-            <script>
-                function updateSliderValue(value) {
-                    document.getElementById('slider-value').innerText = 'Current Value: ' + value;
+            <style>
+                .pulse {
+                    animation: pulse 3s infinite;
                 }
-            </script>
 
-            <button id="submit-btn" class="btn btn-primary mt-3">Submit</button>
+                @keyframes pulse {
+                    0% {
+                        transform: scale(1);
+                    }
+                    50% {
+                        transform: scale(1.1);
+                    }
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+            </style>
+
+            <div class="button-options" style="display: flex; justify-content: center; align-items: center;">
+                <button class="btn-option"style="font-size: 50px; padding: 25px; margin: 0 20px; background-color: #28a745; border: none; border-radius: 50%; transition: transform 0.2s, background-color 0.2s;" 
+                        data-answer="correct" 
+                        onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)';" 
+                        onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)';">
+                    <i class="fas fa-arrow-left" style="color: white;"></i>
+                </button>
+                <button class="btn-option" style="font-size: 50px; padding: 25px; margin: 0 20px; background-color: #28a745; border: none; border-radius: 50%; transition: transform 0.2s, background-color 0.2s;" 
+                        data-answer="wrong" 
+                        onmouseover="this.style.backgroundColor='#218838'; this.style.transform='scale(1.1)';" 
+                        onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='scale(1)';">
+                    <i class="fas fa-arrow-right" style="color: white;"></i>
+                </button>
+            </div>
         </div>
     </div>
-
 
 
     

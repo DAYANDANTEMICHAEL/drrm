@@ -13,6 +13,13 @@
             border: none; /* Remove the border */
             background-color: none;
         }
+        .gamified-btn {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .gamified-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -37,7 +44,7 @@
     <div class="container mt-5 " style="width: 100%; height: 100%; max-width: 1600px; padding: 0 50px;">
 
         <!-- Scenario 1 -->
-        <div class="scenario-container" id="scenario-1">
+        <div class="scenario-container" id="scenario-1" style="display: none;">
             
         <div id="timer" class="timer-position">00:00</div>
             
@@ -66,7 +73,7 @@
                     <span>4</span>
                     <span>5</span>
                 </div>
-                <div id="slider-value" class="mt-2">Current Value: 1</div>
+               
                 <script>
                     function updateSliderValue(value) {
                         document.getElementById('slider-value').innerText = 'Current Value: ' + value;
@@ -131,22 +138,25 @@
                 <p class="typewriter"><span class="animation">Which government agency should you NOT call in case of an emergency? </span></p>
                 </p>
 
-                <div class="button-optionss mt-4" style="display: flex; flex-direction: column;">
-                    <div style="margin: 70px;">
-                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin-right: 70px;"><img src="{{ asset('assets/redcross.png') }}" alt="" ></button>
-                    <button class="btn-options" data-answer="correct" id="scenario3Choices"><img src="{{ asset('assets/dot.png') }}" alt="" ></button>
-                </div>
-                <div style="margin: 70px;">
-                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin-right: 70px;"><img src="{{ asset('assets/philcoastguard.png') }}" alt="" ></button>
-                    <button class="btn-options" data-answer="wrong" id="scenario3Choices"><img src="{{ asset('assets/ndrrmc.png') }}" alt="" ></button>
-                
-                </div>
+                <div class="button-options" style="display: flex; flex-wrap: wrap; justify-content: center;">
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/redcross.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/dot.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="correct" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/philcoastguard.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
+                    <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
+                        <img src="{{ asset('assets/ndrrmc.png') }}" alt="" style="width: 150px; height: 150px;">
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Scenario 4 -->
-        <div class="scenario-container" id="scenario-4" style="display: none;">
+        <div class="scenario-container" id="scenario-4" style="display: none; ">
             
         <div id="timer-4" class="timer-position">00:00</div>
            
@@ -154,11 +164,11 @@
                 <h2 class="mb-4">Now, you have the emergency hotlines and know the agencies you can call. You must keep your communication open.</h2>
                     <p class="typewriter"><span class="animation">What is the next step to ensure you can call for help during an emergency?</span></p>
 
-                <div class="button-options mt-4">
-                    <button class="btn-option" data-answer="wrong">Wait for the typhoon to pass before checking your phone.</button>
-                    <button class="btn-option" data-answer="correct">Make sure your phone is fully charged and has enough credit.</button>
-                    <button class="btn-option" data-answer="wrong">Unplug your phone to prevent damage.</button>
-                    <button class="btn-option" data-answer="wrong">Only check your phone once you hear the emergency sirens.</button>
+                <div class="button-options mt-4" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; margin: 0; gap: 10px;">
+                    <button class="btn-option gamified-btn" data-answer="wrong" style="text-align: left; margin-bottom: 20px;">Wait for the typhoon to pass before checking your phone.</button>
+                    <button class="btn-option gamified-btn" data-answer="correct" style="text-align: left; margin-bottom: 20px;">Make sure your phone is fully charged and has enough credit.</button>
+                    <button class="btn-option gamified-btn" data-answer="wrong" style="text-align: left; margin-bottom: 20px;">Unplug your phone to prevent damage.</button>
+                    <button class="btn-option gamified-btn" data-answer="wrong" style="text-align: left; margin-bottom: 20px;">Only check your phone once you hear the emergency sirens.</button>
                 </div>
             </div>
         </div>
@@ -173,17 +183,29 @@
                 <h2 class="mb-4">You're in the living room preparing to evacuate with your family, but you notice water leaking from the ceiling. To prevent further damage, you need to select and use the correct tools from the items available.</h2>
                 <p class="typewriter"><span class="animation">{{ $scenario5->question }}</span></p>
                 <div class="image-container" style="display: flex; justify-content: center; margin-bottom: 20px;">
-                    <div id="square2" class="draggable-square" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 120px; height: 120px; background-color: rgba(173, 216, 230, 0.8); border: 2px solid #007BFF; border-radius: 10px; margin: 0 10px; position: relative; overflow: hidden;">
+                    <div id="square2" class="draggable-square" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)" style="width: 120px; height: 120px; background-color: rgba(173, 216, 230, 0.8); border: 2px solid #007BFF; border-radius: 10px; margin: 0 10px; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5); transition: transform 0.2s;">
+                        <span class="drag-placeholder" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: bold; color: #007BFF; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); background-color: rgba(255, 255, 255, 0.8); padding: 5px 10px; border-radius: 5px;">Drag Here</span>
                     </div>
-                    <div id="square1" class="draggable-square" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 120px; height: 120px; background-color: rgba(144, 238, 144, 0.8); border: 2px solid #28A745; border-radius: 10px; margin: 0 10px; position: relative; overflow: hidden;">
+                    <div id="square1" class="draggable-square" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)" style="width: 120px; height: 120px; background-color: rgba(144, 238, 144, 0.8); border: 2px solid #28A745; border-radius: 10px; margin: 0 10px; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.5); transition: transform 0.2s;">
+                        <span class="drag-placeholder" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: bold; color: #28A745; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); background-color: rgba(255, 255, 255, 0.8); padding: 5px 10px; border-radius: 5px;">Drag Here</span>
                     </div>
-                    <div id="square3" class="draggable-square" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 120px; height: 120px; background-color: rgba(255, 182, 193, 0.8); border: 2px solid #FF69B4; border-radius: 10px; margin: 0 10px; position: relative; overflow: hidden;">
+                    <div id="square3" class="draggable-square" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)" style="width: 120px; height: 120px; background-color: rgba(255, 182, 193, 0.8); border: 2px solid #FF69B4; border-radius: 10px; margin: 0 10px; position: relative; overflow: hidden; box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5); transition: transform 0.2s;">
+                        <span class="drag-placeholder" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; font-weight: bold; color: #FF69B4; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); background-color: rgba(255, 255, 255, 0.8); padding: 5px 10px; border-radius: 5px;">Drag Here</span>
                     </div>
                 </div>
                 <div class="image-container" style="display: flex; justify-content: center; margin-bottom: 20px;">
-                    <img src="{{ asset('assets/bucket.png') }}" alt="Bucket" style="margin: 0 10px; width: 120px; height: 120px; border: 2px solid #007BFF; border-radius: 10px;" draggable="true" ondragstart="drag(event)">
-                    <img src="{{ asset('assets/ladder.png') }}" alt="Ladder" style="margin: 0 10px; width: 120px; height: 120px; border: 2px solid #28A745; border-radius: 10px;" draggable="true" ondragstart="drag(event)">
-                    <img src="{{ asset('assets/waterproofseal.png') }}" alt="Waterproof Sealant" style="margin: 0 10px; width: 120px; height: 120px; border: 2px solid #FF69B4; border-radius: 10px;" draggable="true" ondragstart="drag(event)">
+                    <div style="text-align: center;">
+                        <img src="{{ asset('assets/waterproofseal.png') }}" alt="Waterproof Sealant" style="margin: 0 10px; width: 120px; height: 120px; border-radius: 10px;" draggable="true" ondragstart="drag(event)" ondragend="removeDescription(this)">
+                        <p class="description">Waterproof sealant<br>Apply the waterproof sealant to the leaking area to temporarily seal the hole and stop the water from dripping.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{{ asset('assets/bucket.png') }}" alt="Bucket" style="margin: 0 10px; width: 120px; height: 120px; border-radius: 10px;" draggable="true" ondragstart="drag(event)" ondragend="removeDescription(this)">
+                        <p class="description">Bucket<br>Place the bucket underneath the leak to catch the dripping water and prevent further damage.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="{{ asset('assets/ladder.png') }}" alt="Ladder" style="margin: 0 10px; width: 120px; height: 120px; border-radius: 10px;" draggable="true" ondragstart="drag(event)" ondragend="removeDescription(this)">
+                        <p class="description">Ladder<br>Position and climb the ladder carefully to access the leaking area on the ceiling.</p>
+                    </div>
                 </div>
                 <div class="button-options mt-4">
                     <button id="submit-tools-btn" class="btn btn-primary">Submit Tools</button>
@@ -191,8 +213,8 @@
                 <script>
                     // Define correctDragItems in the global scope of this script
                     const correctDragItems = {
-                        "Bucket": "square1",
-                        "Ladder": "square2",
+                        "Ladder": "square1",
+                        "Bucket": "square2",
                         "Waterproof Sealant": "square3",
                     };
 
@@ -228,12 +250,14 @@
                         event.dataTransfer.setData("imageId", event.target.alt); 
                     }
 
+                    let incorrectAttempts = 0; // Track incorrect attempts
+
                     function drop(event) {
                         event.preventDefault();
                         const imageId = event.dataTransfer.getData("imageId");
 
                         // Check which square is being dropped on
-                        const targetSquare = event.target;
+                        const targetSquare = event.target.closest('.draggable-square'); // Ensure we get the correct square
 
                         // Check if the dropped image is correct for the target square
                         if (correctDragItems[imageId] === targetSquare.id) {
@@ -253,9 +277,23 @@
 
                             // Remove the original image from the container
                             originalImg.style.display = 'none'; // Hide the dragged image
+                            incorrectAttempts = 0; // Reset incorrect attempts on success
                         } else {
+                            incorrectAttempts++; // Increment incorrect attempts
                             // Provide feedback for incorrect drops
                             showPopup("Wrong square! Try again.");
+                            
+                            // Show hint after 3 incorrect attempts
+                            if (incorrectAttempts >= 3) {
+                                showPopup("Start by controlling the water and ensure you can reach the leak safely.");
+                            }
+                        }
+                    }
+
+                    function removeDescription(image) {
+                        const description = image.parentElement.querySelector('.description');
+                        if (description) {
+                            description.style.display = 'none'; // Hide the description when the image is dragged
                         }
                     }
                 </script>
@@ -283,7 +321,7 @@
                     </h2>
                     <p class="typewriter"><span class="animation">What should you make sure to do before leaving your house for the evacuation center? </span></p>
 
-                <div class="button-options mt-4">
+                <div class="button-options mt-4" style="display: flex; justify-content: space-around;">
                     <button class="btn-option" data-answer="wrong">Leave the doors unlocked for easier access when you return.</button>
                     <button class="btn-option" data-answer="wrong">Open all windows to let air circulate.</button>
                     <button class="btn-option" data-answer="correct">Turn off all electrical appliances and the main power switch. Lock all doors.</button>

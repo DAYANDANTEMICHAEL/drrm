@@ -25,7 +25,7 @@ const timerElement5 = document.getElementById("timer-5");
 const timerElement6 = document.getElementById("timer-6");
 const timerElement7 = document.getElementById("timer-7");
 const timerElement8 = document.getElementById("timer-8");
-const correctAnswer1 = 1; // Correct answer for scenario 1 (Signal 3)
+const correctAnswer1 = 1; // Change to a number if the correct answer is expected to be a number
 const correctAnswer2 = ["Bandages", "Rubbing Alcohol", "Antiseptic Solution", "Gauze Pads", "Medicines"]; // Correct answer for scenario 2
 const correctAnswer3 = "correct"; // Correct answer for scenario 3
 const correctAnswer4 = "correct"; // Correct answer for scenario 4 (Move to a stronger building)
@@ -112,56 +112,54 @@ function stopTimer() {
     elapsedTime = Math.floor((new Date() - timerStart) / 1000);
 }
 
-// Slider interaction
-const slider = document.getElementById("slider");
-const choiceImages = document.querySelectorAll(".choice-image");
-slider.addEventListener("input", () => {
-    const value = slider.value;
-    choiceImages.forEach(image => {
-        image.classList.remove("active");
-    });
-    document.getElementById(`choice-${value}`).classList.add("active");
-});
 
 // Submit for Scenario 1
-const submitBtn = document.getElementById("submit-btn");
-const scenario1Choices = document.getElementById("slider");
-submitBtn.addEventListener("click", () => {
-    const selectedValue = parseInt(slider.value);
-    if (selectedValue === correctAnswer1) {
-        showPopup("Correct! Moving to the next scenario.");
-        scenario1Choices.disabled = true;
 
-        setTimeout(() => {
-            scenario1Choices.disabled = false;
-        }, 2000);
-
-        // Transition to Scenario 2
-        setTimeout(() => {
-            scenario1.style.display = "none"; // Hide Scenario 1
-            scenario7.style.display = "flex"; // Show Scenario 2
-        }, 2000);
-    } else {
-        scenario1Attempts++;
-        if (scenario1Attempts > 2) {
-            showHint("Scenario 1");
-            scenario1Choices.disabled = true;
+const buttonOptions1 = document.querySelectorAll("#scenario-1 .btn-option");
+buttonOptions1.forEach(button => {
+    button.addEventListener("click", () => {
+        const answer = button.getAttribute("data-answer");
+        if (answer === correctAnswer4) {
+    
+            showPopup("Correct! Moving to the next scenario.");
+            buttonOptions1.forEach(button => {
+                button.disabled = true;
+            });
             setTimeout(() => {
-                scenario1Choices.disabled = false;
-            }, 5000);
-        } else {
-            showPopup("Wrong answer. Try again!");
-            scenario1Choices.disabled = true;
+                buttonOptions1.forEach(button => {
+                    button.disabled = false;
+                }, 2000);
+            })
             setTimeout(() => {
-                scenario1Choices.disabled = false;
+                scenario1.style.display = "none";
+                scenario7.style.display = "flex";
             }, 2000);
-            
-           
-
+        } else {
+            scenario1Attempts++;
+            if (scenario1Attempts > 2) {
+                showHint("Scenario 1");
+                buttonOptions1.forEach(button => {
+                    button.disabled = true;
+                });
+                setTimeout(() => {
+                    buttonOptions1.forEach(button => {
+                        button.disabled = false;
+                    });
+                }, 5000);
+            } else {
+                showPopup("Wrong answer. Try again!");
+                buttonOptions1.forEach(button => {
+                    button.disabled = true;
+                });
+                setTimeout(() => {
+                    buttonOptions1.forEach(button => {
+                        button.disabled = false;
+                    });
+                }, 2000);
+            }
         }
-    }
+    });
 });
-
 // Button options for Scenario 2
 const checkboxes = document.querySelectorAll("#scenario-2-choices input[type='checkbox']");
 let selectedAnswers = [];
