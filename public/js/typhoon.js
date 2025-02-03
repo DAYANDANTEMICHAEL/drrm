@@ -555,7 +555,17 @@ buttonOptions8.forEach(button => {
                 scenario8.style.display = "flex";
             }, 10000);
             stopTimer();
-            window.location.href = '/disasters';
+            
+            // Create a "Go Back Home" button
+            const goHomeButton = document.createElement("button");
+            goHomeButton.textContent = "Go Back Home";
+            goHomeButton.id = "go-home-button";
+            document.body.appendChild(goHomeButton); // Append the button to the body
+
+            // Add event listener to the button
+            goHomeButton.addEventListener("click", () => {
+                window.location.href = '/disasters'; // Redirect to home page
+            });
         } else {
             scenario8Attempts++;
             if (scenario8Attempts > 2) {
@@ -602,9 +612,17 @@ function showcongrats(message) {
     popupMessage.textContent = message;
     popup.classList.add("active");
 
-    
-}
+    // Create a "Go to Dashboard" button
+    const goToDashboardButton = document.createElement("button");
+    goToDashboardButton.textContent = "Go to Dashboard";
+    goToDashboardButton.id = "go-to-dashboard-button";
+    popup.appendChild(goToDashboardButton); // Append the button to the popup
 
+    // Add event listener to the button
+    goToDashboardButton.addEventListener("click", () => {
+        window.location.href = '/disasters'; // Redirect to dashboard
+    });
+}
 
 
 // Start the timer initially
