@@ -598,8 +598,18 @@ function showcongrats(message) {
     popupMessage.textContent = message;
     popup.classList.add("active");
 
-    
+    // Create a "Go to Dashboard" button
+    const goToDashboardButton = document.createElement("button");
+    goToDashboardButton.textContent = "Go to Dashboard";
+    goToDashboardButton.id = "go-to-dashboard-button";
+    popup.appendChild(goToDashboardButton); // Append the button to the popup
+
+    // Add event listener to the button
+    goToDashboardButton.addEventListener("click", () => {
+        window.location.href = '/disasters'; // Redirect to dashboard
+    });
 }
+
 
 
 // Start the timer initially
