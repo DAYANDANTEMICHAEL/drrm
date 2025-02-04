@@ -36,7 +36,7 @@
 
 
     <!-- Scenario 2 -->
-    <div class="scenario-container" id="scenario-2" style="display: flex;">
+    <div class="scenario-container" id="scenario-2" style="display: none;">
         <div id="timer-2" class="timer-position">00:00</div>
        
     <div class="scenario-content" id="scenario-content-2">
@@ -156,7 +156,7 @@
                 room during the
                 earthquake drill?
             </span></p>
-        <div style="display: flex; justify-content: space-between; border: 2px solid #28a745; border-radius: 10px; padding: 20px; background-color: #f8f9fa;">
+        <div style="display: flex; justify-content: space-between; border: 2px solid #28a745; border-radius: 10px; padding: 20px; background-color: #f8f9fa;" class="scenario-container">
             <div style="flex: 1; margin-right: 10px; padding: 10px; border: 1px solid #28a745; border-radius: 5px; background-color: #e9ffe9;">
             <strong>Left Route:</strong>
                 <ul>
@@ -240,7 +240,7 @@
 
        
         <!-- Scenario 1 -->
-        <div class="scenario-container" id="scenario-1" style="display: none;">
+        <div class="scenario-container" id="scenario-1" style="display: flex;">
         <div id="timer" class="timer-position">00:00</div>
 
             {{-- <div class="scenario-image">

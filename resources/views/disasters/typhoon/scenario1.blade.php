@@ -20,6 +20,37 @@
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
+        @media (max-width: 758px) {
+            .scenario-container {
+                flex-direction: column; /* Stack scenarios vertically */
+                align-items: center; /* Center align items */
+            }
+            .image-container {
+                flex-direction: column; /* Stack images vertically */
+                align-items: center; /* Center align images */
+            }
+            .draggable-square {
+                width: 100px; /* Adjust width for smaller screens */
+                height: 100px; /* Adjust height for smaller screens */
+            }
+            .description {
+                font-size: 14px; /* Adjust font size for readability */
+            }
+        }
+
+        @media (max-width: 550px) {
+            .scenario-content h2 {
+                font-size: 18px; /* Smaller font size for headings */
+            }
+            .description {
+                font-size: 12px; /* Further adjust font size for descriptions */
+            }
+            .btn {
+                width: 100%; /* Make buttons full width */
+                margin: 5px 0; /* Add margin for spacing */
+            }
+        }
     </style>
 </head>
 
@@ -140,18 +171,19 @@
 
                 <div class="button-options" style="display: flex; flex-wrap: wrap; justify-content: center;">
                     <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/redcross.png') }}" alt="" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('assets/redcross.png') }}" alt="" class="img" style="width: 150px; height: 150px;">
                     </button>
                     <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/dot.png') }}" alt="" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('assets/dot.png') }}" alt="" class="img" style="width: 150px; height: 150px;">
                     </button>
                     <button class="btn-options" data-answer="correct" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/philcoastguard.png') }}" alt="" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('assets/philcoastguard.png') }}" alt="" class="img" style="width: 150px; height: 150px;">
                     </button>
                     <button class="btn-options" data-answer="wrong" id="scenario3Choices" style="margin: 10px;">
-                        <img src="{{ asset('assets/ndrrmc.png') }}" alt="" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('assets/ndrrmc.png') }}" alt="" class="img" style="width: 150px; height: 150px;">
                     </button>
                 </div>
+                
             </div>
         </div>
 

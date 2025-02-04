@@ -362,7 +362,7 @@ input[type="range"]::-webkit-slider-thumb {
     .scenario-content {
         padding: 20px;
         font-size: 18px;
-        margin-left: 0; /* Remove margin-left on smaller screens */
+        margin-left: 0; 
         width: 100%;
     }
 
@@ -374,14 +374,36 @@ input[type="range"]::-webkit-slider-thumb {
         width: 100%;
     }
     .btn-options {
-        width: 100%;
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center;
     }
 
     .typewriter {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 14px; 
     }
     .animation {
-        font-size: 14px; /* Ensure animation text is also responsive */
+        font-size: 14px; 
+    }
+    .timer-position{
+        position: relative;
+        margin-top: 10px;
+    }
+    .button-options img{
+        width: 150px !important; 
+        height: auto !important;
+    }
+
+    .image-container {
+        flex-direction: column; /* Stack images vertically */
+        align-items: center; /* Center align images */
+    }
+    .draggable-square {
+        width: 100px; /* Adjust width for smaller screens */
+        height: 100px; /* Adjust height for smaller screens */
+    }
+    .description {
+        font-size: 14px; /* Adjust font size for readability */
     }
 }
 
@@ -393,19 +415,23 @@ input[type="range"]::-webkit-slider-thumb {
     .animation {
         font-size: 12px; /* Ensure animation text is also responsive */
     }
-}
+    .button-options img{
+        width: 100px!important;
+        height: 100px!important;
+    }
+    .button-options{
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
 
-.button-options img {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    overflow-y: auto;
-}
-.button-optionss img {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    overflow-y: auto;
+    .description {
+        font-size: 12px; /* Further adjust font size for descriptions */
+    }
+    .btn {
+        width: 100%; /* Make buttons full width */
+        margin: 5px 0; /* Add margin for spacing */
+    }
 }
 
 input[type="checkbox"] {
@@ -423,6 +449,7 @@ input[type="checkbox"]:checked + label img {
     .typewriter {
         font-size: 14px; /* Adjust font size for smaller screens */
     }
+
 }
 
 /* Responsive adjustments for animation effect */
